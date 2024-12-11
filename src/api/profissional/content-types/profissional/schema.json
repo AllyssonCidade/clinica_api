@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profissionals",
+  "info": {
+    "singularName": "profissional",
+    "pluralName": "profissionals",
+    "displayName": "Profissional",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "especialidade": {
+      "type": "string",
+      "required": true
+    },
+    "registroProfissional": {
+      "type": "string"
+    },
+    "telefone": {
+      "min": 11,
+      "required": false,
+      "type": "integer"
+    },
+    "senha": {
+      "type": "password",
+      "minLength": 6,
+      "required": true,
+      "private": true,
+      "default": "Profissional123."
+    },
+    "agendamentos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::agendamento.agendamento",
+      "mappedBy": "profissional"
+    }
+  }
+}

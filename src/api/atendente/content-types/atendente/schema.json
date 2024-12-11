@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "atendentes",
+  "info": {
+    "singularName": "atendente",
+    "pluralName": "atendentes",
+    "displayName": "atendente",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "cpf": {
+      "type": "string"
+    },
+    "telefone": {
+      "type": "integer",
+      "min": 11
+    },
+    "dataContrato": {
+      "type": "date",
+      "required": true
+    },
+    "senha": {
+      "type": "password",
+      "private": true,
+      "minLength": 6,
+      "required": true,
+      "default": "Atendente123."
+    },
+    "agendamentos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::agendamento.agendamento",
+      "mappedBy": "atendente"
+    }
+  }
+}

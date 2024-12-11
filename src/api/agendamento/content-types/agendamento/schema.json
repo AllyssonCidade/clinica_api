@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "agendamentos",
+  "info": {
+    "singularName": "agendamento",
+    "pluralName": "agendamentos",
+    "displayName": "Agendamento",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "atendente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::atendente.atendente",
+      "inversedBy": "agendamentos"
+    },
+    "paciente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::paciente.paciente",
+      "inversedBy": "agendamentos"
+    },
+    "profissional": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::profissional.profissional",
+      "inversedBy": "agendamentos"
+    },
+    "data": {
+      "type": "date",
+      "required": true
+    },
+    "hora": {
+      "type": "time",
+      "required": true
+    },
+    "statusAgendamento": {
+      "type": "enumeration",
+      "enum": [
+        "cancelado",
+        "pendente",
+        "confirmado"
+      ],
+      "default": "pendente"
+    },
+    "atendimento": {
+      "type": "enumeration",
+      "enum": [
+        "emergencia",
+        "rotina",
+        "retorno"
+      ],
+      "default": "rotina"
+    },
+    "observacoes": {
+      "type": "blocks"
+    }
+  }
+}
